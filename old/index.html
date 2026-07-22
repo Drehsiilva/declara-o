@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Tempo Juntos</title>
+    <style>
+        /* Estilos para deixar bonito */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #47e0eb; /* Cor do texto */
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+
+        /* --- MÁGICA DO FUNDO --- */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.postimg.cc/PqdX980L/Whats-App-Image-2025-06-12-at-20-04-20-1.jpg');
+        background-size: cover; /* Faz a imagem cobrir todo o fundo */
+        background-position: center; /* Centraliza a imagem */
+        background-attachment: fixed; /* Deixa a imagem fixa enquanto rola a página */
+            
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        #contador {
+            /* --- background-color: #4d66f3; ---*/
+            color: rgb(177, 208, 233);
+            padding: 70px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 3em;
+            font-weight: bold;
+            min-width: 400px;
+        }
+
+        figcaption {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2px 5px;
+            margin-top: -5px;
+            border-radius: 10px;
+            display: block;
+            width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        p {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: rgb(177, 208, 233);
+            border-radius: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 5px 50px;
+            display: inline-block;
+            width: 700px;
+            font-size: 35px;
+        }
+
+        /* =============================================== */
+/* === REGRAS PARA DISPOSITIVOS MÓVEIS (CELULAR) === */
+/* =============================================== */
+@media (max-width: 600px) {
+
+    /* Ajusta o corpo da página */
+    body {
+        padding: 20px 10px; /* Menos espaço nas laterais para aproveitar a tela */
+    }
+
+    /* Diminui os títulos */
+    h1 {
+        font-size: 3.2em; 
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+
+    /* Ajusta o contador para não quebrar a tela */
+    #contador {
+        min-width: 0;        /* Remove a largura mínima que estava atrapalhando */
+        width: 95%;          /* Faz o contador ocupar 95% da largura da tela */
+        font-size: 1.6em;    /* Diminui um pouco a fonte do contador */
+        padding: 20px 10px;  /* Ajusta o espaçamento interno */
+        line-height: 1.5;
+    }
+    
+    /* Faz as unidades de tempo ficarem um pouco maiores no celular para ler melhor */
+    .unidade-tempo {
+        font-size: 0.6em;
+    }
+
+    /* Ajusta as figuras e fotos para empilhar */
+    figure {
+        width: 90%; /* Faz cada foto ocupar 90% da tela, uma embaixo da outra */
+        margin: 20px auto; /* Centraliza a figura na tela */
+        display: block; /* Garante que elas fiquem empilhadas */
+    }
+    
+    /* A imagem dentro da figura deve ocupar 100% do espaço da figura */
+    figure img {
+        width: 100%;
+        height: auto; /* A altura se ajusta automaticamente para não distorcer */
+    }
+    
+    /* A legenda agora também ocupa a largura da figura, sem valor fixo */
+    figcaption {
+        width: auto; /* Remove a largura fixa para se ajustar ao novo tamanho */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+    </style>
+</head>
+<div>
+
+    <h1 style="font-size: 3.5em;">Nosso Tempo Juntos ❤️</h1>
+    <div id="contador">Calculando nosso tempo...</div>
+
+    <script>
+        // --- IMPORTANTE: MUDE APENAS A LINHA ABAIXO ---
+        // Formato: Ano, Mês (Janeiro=0, Fevereiro=1...), Dia, Hora, Minuto, Segundo
+        const dataInicio = new Date('2024-09-09T13:36:00'); // Exemplo: 27 de Outubro de 2022, às 20:00
+
+        function atualizarContador() {
+            const agora = new Date();
+            const diferenca = agora - dataInicio;
+
+            // Cálculos de tempo
+            const segundosTotal = Math.floor(diferenca / 1000);
+            const minutosTotal = Math.floor(segundosTotal / 60);
+            const horasTotal = Math.floor(minutosTotal / 60);
+
+            const anos = Math.floor(horasTotal / (24 * 365.25));
+            const diasRestantes = Math.floor((horasTotal / 24) % 365.25);
+            const horas = horasTotal % 24;
+            const minutos = minutosTotal % 60;
+            const segundos = segundosTotal % 60;
+
+            // Monta o texto que será exibido
+            const texto = `
+                ${anos} anos, ${diasRestantes} dias, <br>
+                ${horas} horas, ${minutos} minutos e ${segundos} segundos.
+            `;
+
+            // Atualiza o elemento na tela
+            document.getElementById('contador').innerHTML = texto;
+        }
+
+        // Faz o contador atualizar a cada segundo
+        setInterval(atualizarContador, 1000);
+
+        // Roda a função uma vez assim que a página carrega
+        atualizarContador();
+    </script>
+    <h2 style="font-size: 2em;"> <span style="color:#09fcc7d3;"> Nossos Momentos:</span></h2>
+    <figure>
+    <img src="https://i.postimg.cc/bJJzNfyp/fundo.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> Essa é a foto mais antiga que tenho. É a que eu mais gosto, descreve muito agente! 😬</figcaption>
+    <img src="https://i.postimg.cc/hPx7qTZM/Whats-App-Image-2025-06-12-at-20-04-21-3.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> você me estressa mais eu te amoo... ❤️</figcaption>
+    <img src="https://i.postimg.cc/wvTBysVK/Whats-App-Image-2025-06-12-at-20-04-13.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> me completa, me faz querer viver  </figcaption>
+    <img src="https://i.postimg.cc/fyVT5npB/Whats-App-Image-2025-06-12-at-19-51-58-1.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> Você sempre liiiinda e perfeita. Sério! olha essa mulher! 👸🏻</figcaption>
+    <img src="https://i.postimg.cc/qvsB1GDV/Whats-App-Image-2025-06-12-at-20-04-19.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> É a peça que faltava em meu coração</figcaption>
+    <img src="https://i.postimg.cc/zGZXwQjF/Whats-App-Image-2025-06-12-at-20-04-17.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> Sou apaixonado em cada detalhe seu !</figcaption>
+    <img src="https://i.postimg.cc/mgs1Zk04/Whats-App-Image-2025-06-12-at-20-11-56.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> Nunca desistir de mim, por isso vc é a minha mulher </figcaption>
+    <img src="https://i.postimg.cc/LXC8z6CJ/Whats-App-Image-2025-06-12-at-19-51-58.jpg"  width="300" style="border-radius:10px; margin:10px;"> <figcaption> E aqui estamos, longes, vamos ter uma familia linda, sempre um para o outro. A exatamente, 227 dias, alguns minutos e alguns segundos como pode acompanhar ai em cima. 😍👫🏻</figcaption>
+    </figure>
+    </div>
+<br><br><br>
+    <p>Então é isso meu amor, queria poder te dar o mundo, mas vou adiar um pouquinho isso ta? 
+        Mas tudo aqui foi de coração.
+        Eu te amo muito de verdade, quero passar o resto dos dias da minha vida com você! <br>
+        <p style="color: red;">FELIZ DIA DOS NAMORADOS! ❤️</p>
+    </p>
+
+    <audio autoplay loop src="https://github.com/Ruansousag/contador_namorados/raw/refs/heads/main/musica%20(1)%20(2).mp3"></audio>
+    </body>
+
+</body>
+</html>
